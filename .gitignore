@@ -1,0 +1,16 @@
+# Python bytecode caches
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Streamlit operational caches
+.streamlit/
+*.streamlit
+
+# Local environment variables / system configurations
+.env
+.venv
+env/
+venv/
+.DS_Store
