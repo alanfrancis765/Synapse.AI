@@ -1,4 +1,5 @@
 import streamlit as st
+import backend.auth_backend as bot_auth
 from LLM import generate_response
 
 st.set_page_config(page_title="Synapse.AI", page_icon="🤖", layout="wide")
@@ -27,19 +28,76 @@ st.markdown("""
     div[data-testid="stSidebar"] button:hover {
         transform: scale(1.02);
     }
+    /* Custom container style for premium login cards */
+    .auth-box {
+        background-color: #1E1E1E;
+        padding: 30px;
+        border-radius: 12px;
+        border: 1px solid #333333;
+    }
     </style>
 """, unsafe_allow_html=True)
 
-# Sidebar for session management and memory window
+# Authentication and session management
+if "auth_status" not in st.session_state:
+    st.session_state.auth_status = None
+    
+if "auth_method" not in st.session_state:
+    st.session_state.auth_method = None 
+
 if "all_sessions" not in st.session_state:
     st.session_state.all_sessions = {
-        "Default chat": []
+        "Default Chat": []
     }
-
 if "current_session" not in st.session_state:
-    st.session_state.current_session = "Default chat"
+    st.session_state.current_session = "Default Chat"
 
-# active_history = st.session_state.all_sessions[st.session_state.current_session]
+#Intercept traffic with the authentication gateway
+if st.session_state.auth_status is None:
+    _, col, _ = st.columns([1, 1.3, 1])
+
+    with col:
+        st.markdown("<br><br>", unsafe_allow_html=True)
+        
+        # Start a clean styling block matching your image layout
+        with st.container(border=True):
+            st.markdown("<h3 style='margin-bottom:15px; font-weight:700;'>Login / Signup</h3>", unsafe_allow_html=True)
+            
+            # Simple Mode Selection dropdown
+            auth_mode = st.selectbox("Action", ["Login", "Sign Up"], label_visibility="collapsed")
+            
+            # Form fields
+            email_input = st.text_input("Email Address", placeholder="Enter your email")
+            password_input = st.text_input("Password", type="password", placeholder="Enter your password")
+            
+            st.markdown("<br>", unsafe_allow_html=True)
+            
+            # Action button
+            button_label = "Login" if auth_mode == "Login" else "Register"
+            if st.button(button_label, type="primary", use_container_width=True):
+                if email_input.strip() and password_input.strip():
+                    
+                    # Call your backend handshake
+                    uid = bot_auth.sign_in_or_register_email(
+                        email=email_input.strip(),
+                        password=password_input.strip(),
+                        mode=auth_mode
+                    )
+                    
+                    if uid:
+                        st.session_state.auth_status = "verified"
+                        st.session_state.user_profile = {"display_name": email_input.strip(), "uid": uid}
+
+                        # Hydrate database data directly out of your custom named database
+                        st.session_state.all_sessions = bot_auth.load_user_sessions(uid)
+                        st.session_state.current_session = list(st.session_state.all_sessions.keys())[0]
+                        st.rerun()
+                else:
+                    st.error("Please fill out both email and password fields.")
+                    
+    st.stop()
+
+
 
 with st.sidebar:
     st.markdown("<h2 style='font-weight:700; color:#FF4B4B;'>💬 Synapse Threads</h2>", unsafe_allow_html=True)
@@ -53,8 +111,8 @@ with st.sidebar:
     st.write("**Recent Conversations:**")
 
     for session_name in list(st.session_state.all_sessions.keys()):
-
         is_active = (session_name == st.session_state.current_session)
+        display_name = session_name if len(session_name) < 22 else session_name[:20] + "..."
 
         if st.button(
             label=f"{session_name}",
@@ -73,8 +131,13 @@ with st.sidebar:
             max_value=40, 
             value=20, 
             step=2,
-            help="Control how many recent messages the AI considers for generating responses. Adjust based on your conversation length and context needs."
+            help="Control how many recent messages the AI considers for generating responses."
         )
+
+    st.markdown("---")
+
+    if st.button("🚪 Logout", use_container_width=True):
+        bot_auth.process_clear_logout()
 #Main interface UI/UX
 
 st.markdown("<h1 class='main-title'>Synapse.AI</h1>", unsafe_allow_html=True)
@@ -107,18 +170,23 @@ if user_input := st.chat_input("Type your message here..."):
         st.markdown(user_input)
     st.session_state.all_sessions[st.session_state.current_session].append({"role": "user", "content": user_input})
 
-    # AUTO-RENAME TRICK: Updates "Default Chat" to match your first sentence
-    if len(st.session_state.all_sessions[st.session_state.current_session]) == 1:
+    if st.session_state.current_session == "Default Chat" and len(st.session_state.all_sessions["Default Chat"]) == 1:
         clean_title = user_input[:20] + "..." if len(user_input) > 20 else user_input
-        
         if clean_title not in st.session_state.all_sessions:
-            st.session_state.all_sessions[clean_title] = st.session_state.all_sessions.pop(st.session_state.current_session)
+            st.session_state.all_sessions[clean_title] = st.session_state.all_sessions.pop("Default Chat")
             st.session_state.current_session = clean_title
 
-    # Generate reply using your context limits
-    with st.chat_message("assistant"):
-        with st.spinner("Thinking..."):
+    # Save the user message to Firebase under the finalized session key
+    bot_auth.save_chat_message(
+        st.session_state.user_profile["uid"],
+        st.session_state.current_session,
+        "user",
+        user_input
+    )
 
+    # Generate reply using context limits
+    with st.chat_message("assistant", avatar="🤖"):
+        with st.spinner("Thinking..."):
             history_snapshot = st.session_state.all_sessions[st.session_state.current_session].copy()
             recent_context = history_snapshot[-memory_window:]
 
@@ -127,5 +195,12 @@ if user_input := st.chat_input("Type your message here..."):
             
     # Append final answer back to active history
     st.session_state.all_sessions[st.session_state.current_session].append({"role": "assistant", "content": ai_reply})
-    st.rerun()
 
+    # Save assistant response to Firebase
+    bot_auth.save_chat_message(
+        st.session_state.user_profile["uid"],
+        st.session_state.current_session,
+        "assistant",
+        ai_reply
+    )
+    st.rerun()
