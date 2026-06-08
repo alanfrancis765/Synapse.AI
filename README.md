@@ -24,7 +24,11 @@
 
 ## 📝 Description
 
-Synapse.AI — a software project built with Python.
+***Synapse.AI*** is a secure, AI-powered conversational web application. The core objective of the platform is to deliver lightning-fast, intelligent chat interactions while maintaining rigorous enterprise-grade security standards and data persistence.
+
+Rather than executing heavy language models on local hardware, Synapse.AI leverages Groq Cloud's Language Processing Units (LPUs) to run Meta's open-source Llama large language model at ultra-low latency.
+
+To turn a standard stateless LLM into a fully functional product, the application integrates a robust backend powered by Firebase. It features a secure login/registration system using Firebase Authentication via REST APIs and preserves user context across sessions by dynamically streaming and updating history logs inside a dedicated Google Cloud Firestore NoSQL database.
 
 ## 🛠️ Tech Stack
 
