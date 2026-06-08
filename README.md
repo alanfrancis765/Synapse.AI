@@ -11,10 +11,7 @@
 [![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 [![License](https://img.shields.io/github/license/alanfrancis765/Synapse.AI?style=for-the-badge)](https://github.com/alanfrancis765/Synapse.AI/blob/main/LICENSE)
 
-<p align="center">
-  <a href="https://synapseai-vunpkjufkfjhnjvb2mbwk3.streamlit.app/"><strong>🌐 Live Demo: Click Here to Try Synapse.AI Live</strong></a>
-</p>
----
+**🌐 Live Demo: [Click Here to Try Synapse.AI Live](https://synapseai-vunpkjufkfjhnjvb2mbwk3.streamlit.app/)**
 
 ## 📑 Table of Contents
 
