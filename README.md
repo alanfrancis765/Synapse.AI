@@ -1,6 +1,7 @@
 ![banner](src/Home.png)
 # Synapse.AI
 
+[![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&logo=Streamlit&logoColor=white)](https://streamlit.io/) [![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=flat-square&logo=firebase&logoColor=black)](https://firebase.google.com/)[![Groq](https://img.shields.io/badge/Groq-000000?style=flat-square&logo=openai&logoColor=white)](https://groq.com/)
 ![GitHub stars](https://img.shields.io/github/stars/alanfrancis765/Synapse.AI?style=for-the-badge&logo=github) ![GitHub forks](https://img.shields.io/github/forks/alanfrancis765/Synapse.AI?style=for-the-badge&logo=github) ![GitHub issues](https://img.shields.io/github/issues/alanfrancis765/Synapse.AI?style=for-the-badge&logo=github) ![Last commit](https://img.shields.io/github/last-commit/alanfrancis765/Synapse.AI?style=for-the-badge&logo=github) ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white) ![License](https://img.shields.io/badge/license-MIT-green?style=for-the-badge)
 
 ## 📑 Table of Contents
