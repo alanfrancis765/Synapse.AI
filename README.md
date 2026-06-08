@@ -47,7 +47,7 @@ To turn a standard stateless LLM into a fully functional product, the applicatio
 ```bash
 
 # 1. Clone the repository
-git clone [https://github.com/alanfrancis765/Synapse.AI.git](https://github.com/alanfrancis765/Synapse.AI.git)
+git clone https://github.com/alanfrancis765/Synapse.AI.git
 
 # 2. Create & activate a virtualenv
 python -m venv venv && source venv/bin/activate
@@ -101,9 +101,12 @@ Contributions are welcome! Here's the standard flow:
 
 Please follow the existing code style and include tests for new behavior where applicable.
 
-## 📜 License
-
-This project is licensed under the **MIT** License.
-
 ---
-*This README was generated with ❤️ by [ReadmeBuddy](https://readmebuddy.com)*
+
+## 🚀 Connect & Support
+
+Thank you for visiting **Synapse.AI**! Building this application was an incredible exercise in merging secure cloud architecture with ultra-fast LLM inference. 
+
+If you have any questions, feedback, or ideas for optimization, feel free to open an issue or reach out!  **Email:** [alanfrancis347@gmail.com](mailto:alanfrancis765@gmail.com)
+
+✨ **Don't forget to star this repository if you found it useful!** ---
