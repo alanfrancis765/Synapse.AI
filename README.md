@@ -47,7 +47,7 @@ To turn a standard stateless LLM into a fully functional product, the applicatio
 ```bash
 
 # 1. Clone the repository
-git clone https://github.com/alanfrancis765/Synapse.AI.git
+git clone [https://github.com/alanfrancis765/Synapse.AI.git](https://github.com/alanfrancis765/Synapse.AI.git)
 
 # 2. Create & activate a virtualenv
 python -m venv venv && source venv/bin/activate
