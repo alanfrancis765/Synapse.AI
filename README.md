@@ -11,6 +11,8 @@
 [![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 [![License](https://img.shields.io/github/license/alanfrancis765/Synapse.AI?style=for-the-badge)](https://github.com/alanfrancis765/Synapse.AI/blob/main/LICENSE)
 
+---
+
 ## 📑 Table of Contents
 
 - [Description](#description)
@@ -30,7 +32,15 @@ To turn a standard stateless LLM into a fully functional product, the applicatio
 
 ## 🛠️ Tech Stack
 
-- 🐍 **Python**
+### 🛠️ Tech Stack & Architecture
+
+* 🐍 **Python** — The core programming language used to develop the entire application.
+* 🎈 **Streamlit** — The frontend framework utilized to build the interactive user interface. 
+* 🔥 **Firebase Authentication** — Used to manage user registration and secure logins.
+* 📦 **Google Cloud Firestore** — The NoSQL cloud database.
+* ⚡ **Groq Cloud (LPU)** — The ultra-low latency inference engine infrastructure.
+* 🦙 **Meta Llama** — The open-source Large Language Model (LLM) serving as the core "AI brain".
+
 
 ## ⚡ Quick Start
 
