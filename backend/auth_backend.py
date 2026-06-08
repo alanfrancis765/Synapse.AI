@@ -9,13 +9,23 @@ key_path = os.path.join(current_dir, "firebase_key.json")
 
 if not firebase_admin._apps:
     try:
+        if os.path.exists(key_path):
 
-        cred = credentials.Certificate(key_path)
-        firebase_admin.initialize_app(cred)
+            cred = credentials.Certificate(key_path)
+            firebase_admin.initialize_app(cred)
+        elif "firebase" in st.secrets:
 
+            firebase_secrets = dict(st.secrets["firebase"])
+
+            if "private_key" in firebase_secrets:
+                firebase_secrets["private_key"] = firebase_secrets["private_key"].replace(r"\n", "\n")
+            cred = credentials.Certificate(firebase_secrets)
+            firebase_admin.initialize_app(cred)
+        else:
+            st.error("Firebase credentials missing from both local files and Streamlit secrets configurations.")   
+    
     except Exception as e:
-
-        st.error(f"Error initializing Firebase key: {e}")
+        st.error(f"Error initializing Firebase SDK context handler: {e}")
 
 db = firestore.client(database_id="db50")
 
