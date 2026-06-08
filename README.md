@@ -1,3 +1,4 @@
+![banner](src/Home.png)
 # Synapse.AI
 
 ![GitHub stars](https://img.shields.io/github/stars/alanfrancis765/Synapse.AI?style=for-the-badge&logo=github) ![GitHub forks](https://img.shields.io/github/forks/alanfrancis765/Synapse.AI?style=for-the-badge&logo=github) ![GitHub issues](https://img.shields.io/github/issues/alanfrancis765/Synapse.AI?style=for-the-badge&logo=github) ![Last commit](https://img.shields.io/github/last-commit/alanfrancis765/Synapse.AI?style=for-the-badge&logo=github) ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white) ![License](https://img.shields.io/badge/license-MIT-green?style=for-the-badge)
