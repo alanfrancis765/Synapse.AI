@@ -1,8 +1,15 @@
 ![banner](src/Home.png)
 # Synapse.AI
 
-[![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&logo=Streamlit&logoColor=white)](https://streamlit.io/) [![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=flat-square&logo=firebase&logoColor=black)](https://firebase.google.com/)[![Groq](https://img.shields.io/badge/Groq-000000?style=flat-square&logo=openai&logoColor=white)](https://groq.com/)
-![GitHub stars](https://img.shields.io/github/stars/alanfrancis765/Synapse.AI?style=for-the-badge&logo=github) ![GitHub forks](https://img.shields.io/github/forks/alanfrancis765/Synapse.AI?style=for-the-badge&logo=github) ![GitHub issues](https://img.shields.io/github/issues/alanfrancis765/Synapse.AI?style=for-the-badge&logo=github) ![Last commit](https://img.shields.io/github/last-commit/alanfrancis765/Synapse.AI?style=for-the-badge&logo=github) ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white) ![License](https://img.shields.io/badge/license-MIT-green?style=for-the-badge)
+[![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&logo=Streamlit&logoColor=white)](https://streamlit.io/)
+[![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=flat-square&logo=firebase&logoColor=black)](https://firebase.google.com/)
+[![Groq](https://img.shields.io/badge/Groq-000000?style=flat-square&logo=openai&logoColor=white)](https://groq.com/)
+[![GitHub stars](https://img.shields.io/github/stars/alanfrancis765/Synapse.AI?style=flat-square)](https://github.com/alanfrancis765/Synapse.AI/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/alanfrancis765/Synapse.AI?style=flat-square)](https://github.com/alanfrancis765/Synapse.AI/network/members)
+[![GitHub issues](https://img.shields.io/github/issues/alanfrancis765/Synapse.AI?color=brightgreen&style=flat-square)](https://github.com/alanfrancis765/Synapse.AI/issues)
+[![GitHub last commit](https://img.shields.io/github/last-commit/alanfrancis765/Synapse.AI?color=green&style=flat-square)](https://github.com/alanfrancis765/Synapse.AI/commits/main)
+[![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
+[![License](https://img.shields.io/github/license/alanfrancis765/Synapse.AI?color=green&style=flat-square)](https://github.com/alanfrancis765/Synapse.AI/blob/main/LICENSE)
 
 ## 📑 Table of Contents
 
