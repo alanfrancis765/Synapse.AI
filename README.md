@@ -22,7 +22,6 @@
 - [Project Structure](#project-structure)
 - [Development Setup](#development-setup)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## 📝 Description
 
@@ -31,8 +30,6 @@
 To turn a standard stateless LLM into a fully functional product, the application integrates a robust backend powered by Firebase. It features a secure login/registration system using Firebase Authentication via REST APIs and preserves user context across sessions by dynamically streaming and updating history logs inside a dedicated Google Cloud Firestore NoSQL database.
 
 ## 🛠️ Tech Stack
-
-### 🛠️ Tech Stack & Architecture
 
 * 🐍 **Python** — The core programming language used to develop the entire application.
 * 🎈 **Streamlit** — The frontend framework utilized to build the interactive user interface. 
